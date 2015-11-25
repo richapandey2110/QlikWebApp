@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>QilkWebApp</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<resource-ref>
+		<description>DB Connection Pool</description>
+		<res-ref-name>jdbc/TestDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+
+	<!-- Base Servlet -->
+	<servlet>
+		<servlet-name>qlikservlet</servlet-name>
+		<servlet-class>com.qlikauditionproject.servlet.QlikServlet</servlet-class>
+	</servlet>
+	<!-- SubmitMessageService Servlet -->
+	<servlet>
+		<servlet-name>submitmessageservlet</servlet-name>
+		<servlet-class>com.qlikauditionproject.servlet.SubmitMessageService</servlet-class>
+	</servlet>
+	<!-- ListMessagesService Servlet -->
+	<servlet>
+		<servlet-name>listmessagesservlet</servlet-name>
+		<servlet-class>com.qlikauditionproject.servlet.ListMessagesService</servlet-class>
+	</servlet>
+	<!-- GetMessageService Servlet -->
+	<servlet>
+		<servlet-name>getmessageservlet</servlet-name>
+		<servlet-class>com.qlikauditionproject.servlet.GetMessageService</servlet-class>
+	</servlet>
+	<!-- DeletetMessageService Servlet -->
+	<servlet>
+		<servlet-name>deletemessageservlet</servlet-name>
+		<servlet-class>com.qlikauditionproject.servlet.DeleteMessageService</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>qlikservlet</servlet-name>
+		<url-pattern>/welcome</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>submitmessageservlet</servlet-name>
+		<url-pattern>/submitmessage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>listmessagesservlet</servlet-name>
+		<url-pattern>/listmessages</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>getmessageservlet</servlet-name>
+		<url-pattern>/getmessage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>deletemessageservlet</servlet-name>
+		<url-pattern>/deletemessage</url-pattern>
+	</servlet-mapping>
+
+</web-app>
